@@ -1,0 +1,394 @@
+:root {
+    --navy-900: #16274a;
+    --navy-800: #1e3560;
+    --navy-700: #2b4a86;
+    --gold-500: #c9a04a;
+    --gold-100: #f4e9d2;
+    --paper: #f5f4f0;
+    --card-bg: #ffffff;
+    --ink: #1c2230;
+    --ink-muted: #6b7280;
+    --line: #e7e4da;
+    --break-bg: #fdf3e2;
+    --break-text: #a15c07;
+    --navbar-h: 68px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: calc(var(--navbar-h) + 20px) 14px 28px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+
+/* Navbar Atas */
+.top-navbar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-800) 100%);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.18);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    height: var(--navbar-h);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+
+.nav-logo .txt p {
+    color: #ffffff;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.15;
+}
+
+.nav-logo .txt span {
+    display: block;
+    color: var(--gold-100);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+header h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 6px;
+}
+
+header p {
+    font-family: 'roma';
+    color: var(--ink-muted);
+    font-size: 1rem;
+}
+
+/* Navigasi Hari — gaya tab tiket */
+.day-navigation {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0;
+}
+
+.day-btn {
+    flex: 1;
+    background-color: #eceef3;
+    color: var(--ink-muted);
+    border: none;
+    padding: 12px 4px;
+    border-radius: 10px 10px 0 0;
+    font-family: 'sora-reg', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.day-btn:hover {
+    color: var(--navy-800);
+}
+
+.day-btn:focus-visible {
+    outline: 2px solid var(--navy-700);
+    outline-offset: 2px;
+}
+
+.day-btn.active {
+    background-color: var(--card-bg);
+    color: var(--navy-900);
+}
+
+.day-btn.active::after {
+    content: "";
+    position: absolute;
+    left: 22%;
+    right: 22%;
+    bottom: 7px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--gold-500);
+}
+
+/* Kartu Jadwal */
+.table-card {
+    background: var(--card-bg);
+    border-radius: 0 14px 14px 14px;
+    padding: 18px 16px 8px;
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 24px -12px rgba(22, 39, 74, 0.18);
+}
+
+.card-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+.card-heading h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy-900);
+}
+
+.card-count {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    white-space: nowrap;
+}
+
+.schedule-list {
+    list-style: none;
+}
+
+.schedule-item {
+    font-family: 'roma';
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 2px;
+    border-bottom: 1px solid var(--line);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.item-index {
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--navy-900);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.item-subject {
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+}
+
+/* Baris Istirahat */
+.schedule-item.break {
+    background-color: var(--break-bg);
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.schedule-item.break .item-index {
+    background: var(--break-text);
+}
+
+.schedule-item.break .item-subject {
+    color: var(--break-text);
+}
+
+/* Kondisi kosong (hari belum ada data) */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 12px 32px;
+    color: var(--ink-muted);
+    border-bottom: none;
+}
+
+.empty-state svg {
+    color: var(--line);
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 0.92rem;
+    margin-bottom: 4px;
+}
+
+.empty-state span {
+    font-size: 0.8rem;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    font-family: 'sora-reg';
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-bottom: 18px;
+}
+
+.dev-title, .contact-title, .dev-titleext {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--navy-700);
+    margin-bottom: 4px;
+}
+
+.dev-name, .dev-name1, .dev-name2 {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+}
+
+.dev-name1 span, .dev-name2 span {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.dev-name span {
+    font-weight: 700;
+    color: var(--navy-900);
+}
+
+/* Tombol Kontak WhatsApp */
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #16a34a;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.whatsapp-btn:hover {
+    background-color: #16a34a;
+    color: #ffffff;
+    border-color: #16a34a;
+}
+
+.whatsapp-btn:focus-visible {
+    outline: 2px solid #16a34a;
+    outline-offset: 2px;
+}
+
+.footer-bottom {
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.74rem;
+    color: var(--ink-muted);
+}
+
+/* Responsif layar kecil */
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .day-btn {
+        font-size: 0.74rem;
+        padding: 10px 2px;
+    }
+
+    .table-card {
+        padding: 16px 12px 6px;
+    }
+}
+
+@font-face {
+  font-family: 'sora-reg';
+  src: url('../font/Sora-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'sora-bol';
+  src: url('../font/Sora-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'imp';
+  src: url('../font/impact.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'pop-reg';
+  src: url('../font/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'roma';
+  src: url('../font/Roman_SD.ttf') format('truetype');
+}

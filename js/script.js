@@ -38,8 +38,8 @@ function showSchedule(hari, element) {
                 <rect x="3" y="5" width="18" height="16" rx="2"></rect>
                 <path d="M3 10h18M8 3v4M16 3v4"></path>
             </svg>
-            <p> ”GELOO” <br>Ujian Mid Telah Usai</p>
-            <span></span>
+            <p> ”GELOO” <br>Ujian Mid Telah Berakhir</p>
+            <span>Bersenang-senanglah sebelum ujian selanjutnya menyusul.</span>
         `;
         list.appendChild(empty);
         return;

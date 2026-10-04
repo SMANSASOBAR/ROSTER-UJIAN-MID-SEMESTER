@@ -1,29 +1,9 @@
 const dataRoster = {
     // SENIN
-    senin: [
-        { mapel: "Agama" },
-        { mapel: "Matematika" },
-        { mapel: "Geografi" },
-        { mapel: "Sejarah" }
-    ],
-    selasa: [
-        { mapel: "Informatika" },
-        { mapel: "PKN" },
-        { mapel: "Bahasa Inggris" },
-        { mapel: "Biologi" },
-        
-    ],
-    rabu: [
-        { mapel: "Bahasa Indonesia" },
-        { mapel: "PJOK" },
-        { mapel: "Kimia" },
-        { mapel: "Sosiologi" }
-    ],
-    kamis: [
-        { mapel: "Fisika" },
-        { mapel: "Seni Musik" },
-        { mapel: "Ekonomi" },
-    ],
+    senin: [],
+    selasa: [],
+    rabu: [],
+    kamis: [],
     jumat: []
 };
 
@@ -58,8 +38,8 @@ function showSchedule(hari, element) {
                 <rect x="3" y="5" width="18" height="16" rx="2"></rect>
                 <path d="M3 10h18M8 3v4M16 3v4"></path>
             </svg>
-            <p> ”GELOO” <br>Jadwal tidak tersedia</p>
-            <span>Ujian berakhir di hari kamis.</span>
+            <p> ”GELOO” <br>Ujian Mid Telah Usai</p>
+            <span></span>
         `;
         list.appendChild(empty);
         return;
